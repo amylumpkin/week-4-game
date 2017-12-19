@@ -12,7 +12,7 @@ function getRandomNumber(min, max) {
 
 
 //setting starting values
-var sum = 0; 
+var total = 0; 
 var wins = 0;
 var losses = 0;
 // wins and losses counter
@@ -21,8 +21,8 @@ var losses = 0;
 $("#numberWins").text(wins);   //'number Wins' is now equal to a value
 $("#numberLosses").text(losses);
 
-//resets the game
-function reset() {    //defines the reset function
+//defining the reset function
+function reset() {   
     targetNumber = getRandomNumber(18, 120); //targetNumber is equal to the solution
 
     //grabbing html and setting text content.
@@ -40,17 +40,17 @@ function reset() {    //defines the reset function
     console.log(randomNumber3);
     console.log(randomNumber4);
     
-    sum = 0;
-    $("#finalSum").text(sum);
+    total = 0;
+    $("#finalTotal").text(total);
 } 
-//function to count wins
+//defining the win function
 function win() {
     alert("You won!");
     wins++; 
     $("#numberWins").text(wins);
     reset(); //calling the reset function here, 
 }
-//function to count losses
+//defining the lose function
 function lose() {
     alert ("You lose!");
     losses++;
@@ -58,51 +58,52 @@ function lose() {
     reset();
 }
 //click functions for crystals
-$("#crystal1").on("click", function() {
-    sum += randomNumber1;
-    console.log(sum);
-    $("#finalSum").text(sum); 
+$("#crystal1").click(function() {      //all four of these functions can be one. (DRY)
+    total += randomNumber1;   //concatenates a string
+    console.log(total);
+
+    $("#finalTotal").text(total); 
     
-    if (sum == targetNumber) { 
+    if (total == targetNumber) { 
         win();  //calling the win function
      }
-    else if (sum > targetNumber) { 
-         lose();
+    else if (total > targetNumber) { 
+         lose(); //calling the lose function
      }   
-});  
-$("#crystal2").on ("click", function() {   //all four of these functions can be one. (DRY)
-    sum += randomNumber2;
-    console.log(sum);
-    $("#finalSum").text(sum); 
+}); 
+$("#crystal2").on ("click", function() {   
+    total += randomNumber2;       
+    console.log(total);
+    $("#finalTotal").text(total); 
     
-    if (sum == targetNumber) {
+    if (total == targetNumber) {
         win();
     }
-    else if ( sum > targetNumber){
+    else if (total > targetNumber){
         lose();
     }   
 });  
 $("#crystal3").on("click", function() {
-    sum += randomNumber3;
-    console.log(sum);
-    $("#finalSum").text(sum);
+    total += randomNumber3;
+    console.log(total);
+    $("#finalTotal").text(total);
     
-    if (sum == targetNumber) {
+    if (total == targetNumber) {
         win();
     }
-    else if (sum > targetNumber) {
+    else if (total > targetNumber) {
         lose();
     }   
 });  
 $("#crystal4").on("click", function() {
-    sum += randomNumber4;
-    console.log(sum);
-    $("#finalSum").text(sum);
+    total += randomNumber4;
+    console.log(total);
+    $("#finalTotal").text(total);
     
-    if (sum == targetNumber) {
+    if (total == targetNumber) {
         win();
     }
-    else if (sum > targetNumber) {
+    else if (total > targetNumber) {
         lose();
     }   
 });  
