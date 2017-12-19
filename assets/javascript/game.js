@@ -58,11 +58,10 @@ function lose() {
     reset();
 }
 //click functions for crystals
-$("#crystal1").click(function() {      //all four of these functions can be one. (DRY)
-    total += randomNumber1;   //concatenates a string
+$("#crystal1").on("click", function() {      //all four of these click functions can be one. (DRY)
+    total += randomNumber1;   //concatenates a string (links things together)
     console.log(total);
-
-    $("#finalTotal").text(total); 
+    $("#finalTotal").text(total); // $(html id or class).text(a value)
     
     if (total == targetNumber) { 
         win();  //calling the win function
@@ -71,7 +70,7 @@ $("#crystal1").click(function() {      //all four of these functions can be one.
          lose(); //calling the lose function
      }   
 }); 
-$("#crystal2").on ("click", function() {   
+$("#crystal2").on("click", function() {   
     total += randomNumber2;       
     console.log(total);
     $("#finalTotal").text(total); 
