@@ -10,7 +10,7 @@ function getRandomNumber(min, max) {
 
     //any function that returns a value, when it resolves, becomes that value.
     return Math.floor(Math.random() * (max - min + 1)) + min;
-                                    //number under 120     //number at least 18           
+                                    //number under 120 or 12     //number at least 18 or 1          
 }
 
 
@@ -71,7 +71,7 @@ $("#crystal1").on("click", function() {      //all four of these click functions
     if (total == targetNumber) { 
         win();  //calling the win function
      }
-    else if (total > targetNumber) { 
+    if (total > targetNumber) { 
          lose(); //calling the lose function
      }   
 
@@ -85,7 +85,7 @@ $("#crystal2").on("click", function() {
     if (total == targetNumber) {
         win();
     }
-    else if (total > targetNumber){
+    if (total > targetNumber){
         lose();
     }   
 });  
@@ -97,7 +97,7 @@ $("#crystal3").on("click", function() {
     if (total == targetNumber) {
         win();
     }
-    else if (total > targetNumber) {
+    if (total > targetNumber) {
         lose();
     }   
 });  
@@ -109,7 +109,7 @@ $("#crystal4").on("click", function() {
     if (total == targetNumber) {
         win();
     }
-    else if (total > targetNumber) {
+    if (total > targetNumber) {
         lose();
     }   
 });  
