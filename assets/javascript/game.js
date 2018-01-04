@@ -40,6 +40,7 @@ function reset() {
     randomNumber4 = getRandomNumber(1,12);
 
     console.log(randomNumber1);
+
     console.log(randomNumber2);
     console.log(randomNumber3);
     console.log(randomNumber4);
@@ -63,54 +64,40 @@ function lose() {
 }
 //click functions for crystals
 
-$("#crystal1").on("click", function() {      //all four of these click functions can be combined into one, I just know it!!!. (DRY)
-    total += randomNumber1;   //concatenates a string (links things together)
-    console.log(total);
-    $("#finalTotal").text(total); // $(html id or class - this grabs the html).whatever text is in the html(a value)
+$(".crystalImage").on("click", function(){
     
-    if (total == targetNumber) { 
-        win();  //calling the win function
-     }
-    if (total > targetNumber) { 
-         lose(); //calling the lose function
-     }   
+    
+    switch(this.id){
 
-//these are essentially the same as crystal 1...   
-}); 
-$("#crystal2").on("click", function() {   
-    total += randomNumber2;       
-    console.log(total);
-    $("#finalTotal").text(total); 
-    
-    if (total == targetNumber) {
-        win();
+        case "crystal1" : 
+            console.log("you clicked crytal 1");
+            total += randomNumber1;
+        break;
+        case "crystal2" : 
+            console.log("you clicked crytal 2");
+            total += randomNumber2;
+        break;
+        case "crystal3" : 
+            console.log("you clicked crytal 3");
+            total += randomNumber3;
+        break;
+        case "crystal4" : 
+            console.log("you clicked crytal 4");
+            total += randomNumber4;
+        break;
+        default: 
+            console.log("The Default Fired");
+        
     }
-    if (total > targetNumber){
-        lose();
-    }   
-});  
-$("#crystal3").on("click", function() {
-    total += randomNumber3;
-    console.log(total);
-    $("#finalTotal").text(total);
-    
-    if (total == targetNumber) {
-        win();
-    }
-    if (total > targetNumber) {
-        lose();
-    }   
-});  
-$("#crystal4").on("click", function() {
-    total += randomNumber4;
-    console.log(total);
-    $("#finalTotal").text(total);
-    
     if (total == targetNumber) {
         win();
     }
     if (total > targetNumber) {
         lose();
-    }   
-});  
-}); 
+    };   
+    console.log(total);
+    $("#finalTotal").text(total);
+});
+
+});
+
